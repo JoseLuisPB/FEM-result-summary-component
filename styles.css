@@ -1,0 +1,197 @@
+:root{
+    --color-red: hsl(0, 100%, 67%);
+    --color-light-red: hsl(0, 100%, 95%);
+    --color-orange: hsl(39, 100%, 56%);
+    --color-light-orange: hsl(39, 100%, 95%);
+    --color-green: hsl(166, 100%, 37%);
+    --color-light-green: hsl(166, 100%, 95%);
+    --color-blue: hsl(234, 85%, 45%);
+    --color-light-blue: hsl(234, 85%, 95%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-pale-blue: hsl(221, 100%, 96%);
+    --color-light-lavender: hsl(241, 100%, 89%);
+    --color-dark-blue: hsl(224, 30%, 27%);
+
+    --bg-gradient-light-blue: hsl(252, 100%, 67%);
+    --bg-gradient-dark-blue: hsl(241, 81%, 54%);
+
+    --circle-light-blue: hsla(256, 72%, 46%, 1);
+    --circle-dark-blue: hsla(241, 72%, 46%, 0);
+
+    --font-w500: 500;
+    --font-w700: 700;
+    --font-w800: 800;
+}
+
+body{
+    background: gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+main{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items:stretch;
+    grid-template-columns: 1fr 1fr;
+    width: 60%;
+    justify-items: stretch;
+    
+}
+
+p{
+    font-size: 18px;
+}
+
+h1{
+    color: var(--color-light-lavender);
+}
+
+h1, h2{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+}
+
+.grid-left{
+    background: linear-gradient(var(--bg-gradient-light-blue), var(--bg-gradient-dark-blue));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 3.25rem;
+    gap: 1rem;
+}
+
+.grid-right{
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 2rem 2rem 0;
+    padding: 3.25rem;
+    gap: 1rem;
+}
+
+.circle{
+    background: linear-gradient(var(--circle-light-blue), var(--circle-dark-blue));
+    height: 7.5rem;
+    width: 7.5rem;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.result{
+    color: var(--color-white);
+    font-size: 4rem;
+    font-weight: var(--font-w800);
+}
+
+.total{
+    color: var(--color-light-lavender);
+}
+
+.great{
+    color: var(--color-white);
+    font-size: 1.75rem;
+    margin: auto
+}
+
+.score-description{
+    text-align: center;
+    color: var(--color-light-lavender);
+}
+
+.card {
+    display: flex;
+}
+
+.card div{
+    display: flex;
+    gap: 0.5rem;
+}
+
+[data-attribute]{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.65rem;
+    border-radius: 0.5rem;
+}
+
+[data-attribute="reaction"]{
+    background: var(--color-light-red);
+    color: var(--color-red);
+    font-weight: var(--font-w800);
+}
+
+[data-attribute="memory"]{
+    background: var(--color-light-orange);
+    color: var(--color-orange);
+    font-weight: var(--font-w800);
+}
+
+[data-attribute="verbal"]{
+    background: var(--color-light-green);
+    color: var(--color-green);
+    font-weight: var(--font-w800);
+}
+
+[data-attribute="visual"]{
+    background: var(--color-light-blue);
+    color: var(--color-blue);
+    font-weight: var(--font-w800);
+}
+
+[data-result="result"]{
+    color: black;
+    font-weight: var(--font-w800);
+}
+
+[data-total-result="total-result"]{
+    color: var(--color-dark-blue)
+}
+
+.button{
+    background: var(--color-dark-blue);
+    color: var(--color-white);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1.25rem;
+    border: none;
+}
+
+.button:hover{
+    background: linear-gradient(var(--bg-gradient-light-blue), var(--bg-gradient-dark-blue));
+    transition: 0.5;
+}
+
+.attribution { 
+    margin-top: 1rem;
+    font-size: 11px; 
+    text-align: center; 
+    grid-column: span 2;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media screen and (max-width: 480px) {
+    main{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .grid-left{
+        border-radius: 0 0 2rem 2rem;
+    }
+}
