@@ -30,8 +30,6 @@
     --circle-light-blue: hsla(256, 72%, 46%, 1);
     --circle-dark-blue: hsla(241, 72%, 46%, 0);
 
-    --font-w500: 500;
-    --font-w700: 700;
     --font-w800: 800;
 }
 
@@ -212,6 +210,7 @@ h1, h2{
     main{
         display:flex;
         flex-direction: column;
+        justify-content: flex-start;
         width: 100%;
     }
 
