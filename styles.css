@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'HankenGrotesk';
+    font-weight: 100 900;
+    src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf) format('truetype');
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
 :root{
     --color-red: hsl(0, 100%, 67%);
     --color-light-red: hsl(0, 100%, 95%);
@@ -11,6 +22,7 @@
     --color-pale-blue: hsl(221, 100%, 96%);
     --color-light-lavender: hsl(241, 100%, 89%);
     --color-dark-blue: hsl(224, 30%, 27%);
+    --color-body: hsl(216, 11%, 91%);
 
     --bg-gradient-light-blue: hsl(252, 100%, 67%);
     --bg-gradient-dark-blue: hsl(241, 81%, 54%);
@@ -24,25 +36,30 @@
 }
 
 body{
-    background: gray;
+    background: var(--color-body);
     display: flex;
     flex-direction: row;
     justify-content: center;
     min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: HankenGrotesk;
 }
 
 main{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
-    align-items:stretch;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.layout{
+    display: grid;
     grid-template-columns: 1fr 1fr;
     width: 60%;
-    justify-items: stretch;
-    
+    background: var(--color-white);
+    border-radius: 2rem;
 }
 
 p{
@@ -58,36 +75,41 @@ h1, h2{
     font-size: 1.5rem;
 }
 
-.grid-left{
+.result-panel{
     background: linear-gradient(var(--bg-gradient-light-blue), var(--bg-gradient-dark-blue));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 2rem;
-    padding: 3.25rem;
+    display: grid;
+    align-content: start;
+    justify-items: center;
     gap: 1rem;
+    border-radius: 2rem;
+    padding: 2.5rem 3.75rem;
 }
 
-.grid-right{
+
+.summary-panel{
     background: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 0 2rem 2rem 0;
-    padding: 3.25rem;
+    display: grid;
+    align-content: start;
+    justify-items: center;
     gap: 1rem;
+    border-radius: 0 2rem 2rem 0;
+    padding: 2.5rem;
 }
 
 .circle{
     background: linear-gradient(var(--circle-light-blue), var(--circle-dark-blue));
-    height: 7.5rem;
-    width: 7.5rem;
+    width: 12rem;
     border-radius: 50%;
+    aspect-ratio: 1/1;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 2rem;
+}
+
+.circle span{
+    display: block;
 }
 
 .result{
@@ -103,7 +125,8 @@ h1, h2{
 .great{
     color: var(--color-white);
     font-size: 1.75rem;
-    margin: auto
+    margin: auto;
+    text-align: center;
 }
 
 .score-description{
@@ -166,14 +189,14 @@ h1, h2{
     background: var(--color-dark-blue);
     color: var(--color-white);
     width: 100%;
-    padding: 1rem;
-    border-radius: 1.25rem;
+    padding: 1rem 2rem;
+    border-radius: 100vw;
     border: none;
+    cursor: pointer;
 }
 
 .button:hover{
     background: linear-gradient(var(--bg-gradient-light-blue), var(--bg-gradient-dark-blue));
-    transition: 0.5;
 }
 
 .attribution { 
@@ -184,6 +207,7 @@ h1, h2{
 }
 .attribution a { color: hsl(228, 45%, 44%); }
 
+
 @media screen and (max-width: 480px) {
     main{
         display:flex;
@@ -191,7 +215,13 @@ h1, h2{
         width: 100%;
     }
 
-    .grid-left{
+    .layout{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .result-panel{
         border-radius: 0 0 2rem 2rem;
     }
 }
